@@ -68,15 +68,15 @@ const App = () => {
           question = choice.next as QuestionType;
       });
     }
+    setAnsweredQuestion((prev) => {
+      prev.pop()!;
+      return prev;
+    });
     // 1つ前の問題をセット
     setCurrentQuestion(question);
     // 現在と前回の問題文のタイトルを更新する
     setCurrentQuestionTitle(answeredQuestion[answeredQuestion.length - 2]);
     setPreviousQuestionTitle(answeredQuestion[answeredQuestion.length - 3]);
-    setAnsweredQuestion((prev) => {
-      prev.pop()!;
-      return prev;
-    });
   };
 
   const stageDom = {
